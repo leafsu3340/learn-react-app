@@ -11,6 +11,7 @@ import styles from "./index.module.css";
 import { foo } from "./HOC";
 import React, { Component } from "react";
 import HOCForm from './HOCForm';
+import MyRCFieldForm from './pages/MyRCFieldForm';
 
 
 
@@ -43,6 +44,7 @@ function App() {
       <RouterPage />
       <Foo /> */}
       <Decorator/>
+      <MyRCFieldForm/>
     </div>
   );
 }
