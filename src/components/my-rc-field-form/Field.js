@@ -3,15 +3,12 @@ import FieldContext from "./FieldContext";
 
 // ? 因为等下我要用某个api
 export default class Field extends Component {
-  constructor(props) {
-    super()
-    this.rules = props.rules || [];
-  }
   static contextType = FieldContext;
 
   componentDidMount() {
+    const { rules } = this.props;
     this.unregisterFieldEntity = this.context.registerFieldEntity(this);
-    this.context.registerFieldRules({ [this.props.name]: this.rules });
+    this.context.registerFieldRules({ [this.props.name]: rules });
   }
 
   componentWillUnmount() {

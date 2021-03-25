@@ -14,7 +14,7 @@ class FormStore {
     };
   };
 
-  // * 注册和取消注册 订阅和取消订阅 一定要成对出现
+  // 注册和取消注册 订阅和取消订阅 一定要成对出现
   registerFieldEntity = (entity) => {
     //注册
     this.fieldEntities.push(entity);
@@ -101,8 +101,8 @@ class FormStore {
   };
 }
 
-export default function useForm(form) {
-  const formRef = React.useRef();
+export default function useForm(form) {   // 自定义hook，要以use开头， 自定义hook内可以使用hook
+  const formRef = React.useRef();  // ref 对象在组件的整个生命周期内保持不变
   if (!formRef.current) {
     if (form) {
       formRef.current = form;
@@ -114,3 +114,9 @@ export default function useForm(form) {
 
   return [formRef.current];
 }
+
+// hook的使用
+// 1.函数组件内可以使用hook
+// 2.自定义hook内可以使用hook
+// 3.hook要在函数顶层使用
+// 4.hook实际上相当于抽象了生命周期，可以达到复用状态逻辑的功效

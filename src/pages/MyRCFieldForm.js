@@ -1,6 +1,6 @@
 import React, { Component, useEffect } from "react";
-// import Form, {Field} from "rc-field-form";
-import Form, { Field } from "../components/my-rc-field-form/";
+import Form, {Field} from "rc-field-form";
+// import Form, { Field } from "../components/my-rc-field-form/";
 import Input from "../components/Input";
 
 const nameRules = { required: true, message: "请输入姓名！" };
@@ -22,10 +22,10 @@ export default function MyRCFieldForm(props) {
     console.log("onFinishFailed", err, val); //sy-log
   };
 
-  // didmount
+  // didmount、didUpdate、willUnMount
   useEffect(() => {
     console.log("form", form); //sy-log
-    form.setFieldsValue({ username: "", password: "" });
+    form.setFieldsValue({ username: "123", password: "" });
   }, []);
 
   return (
@@ -45,7 +45,7 @@ export default function MyRCFieldForm(props) {
 }
 
 // export default class MyRCFieldForm extends Component {
-//   formRef = React.createRef();
+//   this.formRef = React.createRef();
 //   componentDidMount() {
 //     console.log("form", this.formRef.current); //sy-log
 //     this.formRef.current.setFieldsValue({ username: "", password: "" });
