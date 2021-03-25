@@ -1,5 +1,4 @@
 import React from "react";
-
 class FormStore {
   constructor() {
     this.store = {}; //存储state数据, 以key value形式存储
@@ -61,12 +60,11 @@ class FormStore {
     let err = [];
     // todo 校验 作业
     for (const fieldName in this.store) {
-      debugger
       if (this.fieldRules[fieldName]) {
         const rules = this.fieldRules[fieldName];
         rules.forEach(rule => {
           if (rule.required && !this.store[fieldName]) {
-            err.push(rule.msg);
+            err.push(rule.message);
           }
         })
       }
