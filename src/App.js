@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
 import "./styles/App.css";
 import styles from "./styles/index.module.css";
 // import Comp from "./components/Comp";
@@ -31,7 +30,6 @@ function App() {
   return (
     <div className={styles.app}>
       <header>
-        <img src={logo} className={styles.icon} alt="logo" />
         <p>this is react</p>
       </header>
       {/* <HOCForm/>

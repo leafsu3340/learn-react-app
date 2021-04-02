@@ -1,3 +1,10 @@
+/*
+ * @Description: 高阶组件，参数为组件，返回一个新的组件
+ * @Author: dengxiaodong
+ * @Date: 2021-03-25 09:47:21
+ * @LastEditors: dengxiaodong
+ * @LastEditTime: 2021-04-02 15:27:49
+ */
 import React, { Component } from "react";
 
 // export const foo = (Comp) => (props) => {
