@@ -3,18 +3,19 @@
  * @Author: dengxiaodong
  * @Date: 2021-02-25 16:01:04
  * @LastEditors: dengxiaodong
- * @LastEditTime: 2021-02-25 16:36:32
+ * @LastEditTime: 2021-04-02 15:15:34
  */
 import React, { Component } from 'react';
 // import store from "./store/ReduxStore";
-import { connect } from 'react-redux'
+// import { connect } from 'react-redux'
+import { connect } from "../plugin/e-react-redux";
 
 class ReduxPage extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      counter: 0
-    }
+    // this.state = {
+    //   counter: 0
+    // }
   }
   componentDidMount() {
     // store.subscribe(() => {
