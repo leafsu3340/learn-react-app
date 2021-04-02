@@ -16,6 +16,7 @@ class FormStore {
 
   // * 注册和取消注册 订阅和取消订阅 一定要成对出现
   registerFieldEntity = (entity) => {
+    console.log(entity)
     //注册
     this.fieldEntities.push(entity);
     return () => {
@@ -47,10 +48,11 @@ class FormStore {
     };
     // step2: 组件也要更新
     // 对应组件才需要更新，需要加筛选
+    // TAG 使用函数组件编写Field是，使用useRef传递实例，注意使用: entity.current
     this.fieldEntities.forEach((entity) => {
       Object.keys(newStore).forEach((k) => {
-        if (k === entity.props.name) {
-          entity.onStoreChange();
+        if (k === entity.current.props.name) {
+          entity.current.onStoreChange();
         }
       });
     });
