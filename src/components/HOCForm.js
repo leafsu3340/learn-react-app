@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Input from "./input";
+import Input from "./Input";
 // import { createForm } from "rc-form";
 import { createForm } from "./my-rc-form";
 

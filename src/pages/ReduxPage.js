@@ -1,7 +1,16 @@
 import React, { Component } from "react";
 import store from "../store/";
+// import { connect } from 'react-redux'
+// import store from "./store/ReduxStore";
+import { connect } from "../plugin/e-react-redux";
 
-export default class ReduxPage extends Component {
+class ReduxPage extends Component {
+  constructor(props) {
+    super(props);
+    // this.state = {
+    //   counter: 0
+    // }
+  }
   componentDidMount() {
     // store发生变化之后，执行subscribe的监听函数
     this.unsubscribe = store.subscribe(() => {
@@ -51,3 +60,21 @@ export default class ReduxPage extends Component {
     );
   }
 }
+// 函数，类似mapgetters
+const mapStateToProps = state => {
+  return {
+    num: state,
+  };
+};
+// 对象，类似mapactions
+const mapDispatchToProps = {
+  add: () => {
+    return { type: "ADD" };
+  },
+  minus: () => {
+    return { type: "MINUS" };
+  }
+};
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(ReduxPage);
