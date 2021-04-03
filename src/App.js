@@ -1,6 +1,7 @@
 import logo from "./logo.svg";
 import "./App.css";
 import styles from "./index.module.css";
+import ReduxPage from "./pages/ReduxPage";
 // import Comp from "./Comp";
 // import { FunctionalComp } from "./FunctionalComp";
 // import LifeCyclePage from "./LifecyclePage";
@@ -34,7 +35,7 @@ function App() {
         <img src={logo} className={styles.icon} alt="logo" />
         <p>this is react</p>
       </header>
-      <HOCForm/>
+      {/* <HOCForm/> */}
       {/* <Comp />
       <HookTest />
       <FunctionalComp />
@@ -43,8 +44,9 @@ function App() {
       <ReduxPage />
       <RouterPage />
       <Foo /> */}
-      <Decorator/>
-      <MyRCFieldForm/>
+      {/* <Decorator/>
+      <MyRCFieldForm/> */}
+      <ReduxPage/>
     </div>
   );
 }
