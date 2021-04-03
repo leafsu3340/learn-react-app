@@ -3,7 +3,7 @@
  * @Author: dengxiaodong
  * @Date: 2021-04-02 10:46:41
  * @LastEditors: dengxiaodong
- * @LastEditTime: 2021-04-02 15:18:23
+ * @LastEditTime: 2021-04-03 22:48:18
  */
 import React, { useCallback, useContext, useEffect, useState, useLayoutEffect } from 'react';
 
@@ -87,4 +87,31 @@ function useForceUpdate() {
   set.add(update);
 
   return update;
+}
+
+// TAG 实现自定义hook-useSelector
+export function useSelector(select) {
+  const store = useContext(Context);
+  const { getState, subscribe } = store;
+
+  const forceUpdate = useForceUpdate();
+  useLayoutEffect(() => {
+    const unsubscribe = subscribe(() => {
+      forceUpdate();
+    })
+    return () => {
+      if (unsubscribe) {
+        unsubscribe();
+      }
+    };
+  }, [store])
+
+  return select(getState())
+}
+
+// TAG 实现自定义hook-useDispatch
+export function useDispatch() {
+  const store = useContext(Context);
+  const { dispatch } = store;
+  return dispatch
 }

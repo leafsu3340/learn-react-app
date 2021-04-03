@@ -3,13 +3,19 @@
  * @Author: dengxiaodong
  * @Date: 2021-04-02 10:33:17
  * @LastEditors: dengxiaodong
- * @LastEditTime: 2021-04-02 15:12:41
+ * @LastEditTime: 2021-04-03 22:36:59
  */
 // import { connect } from 'react-redux'
-import { connect } from "../plugin/e-react-redux";
+// import { connect } from "../plugin/e-react-redux";
+import { useDispatch, useSelector } from '../plugin/e-react-redux';
+// import { useDispatch, useSelector } from 'react-redux';
 
 function ReduxFnPage(props) {
-  const { num, add, minus, setSize } = props;
+  // const { num, add, minus, setSize } = props;
+  const num = useSelector(state => state)
+  const dispatch = useDispatch();
+  const add = () => dispatch({ type: "ADD" })
+  const minus = () => dispatch({ type: "MINUS" })
   return (
     <div>
       <h3>ReduxPage</h3>
@@ -17,7 +23,7 @@ function ReduxFnPage(props) {
       <button onClick={add}>add</button>
       <button onClick={minus}>minus</button>
       { props.children}
-      <div>useCallback set.size = {setSize}</div>
+      {/* <div>useCallback set.size = {setSize}</div> */}
     </div>
   );
 };
@@ -38,4 +44,6 @@ const mapDispatchToProps = {
   }
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ReduxFnPage);
+export default ReduxFnPage;
+
+// export default connect(mapStateToProps, mapDispatchToProps)(ReduxFnPage);
