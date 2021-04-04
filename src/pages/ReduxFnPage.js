@@ -3,7 +3,7 @@
  * @Author: dengxiaodong
  * @Date: 2021-04-02 10:33:17
  * @LastEditors: dengxiaodong
- * @LastEditTime: 2021-04-03 22:36:59
+ * @LastEditTime: 2021-04-04 19:01:30
  */
 // import { connect } from 'react-redux'
 // import { connect } from "../plugin/e-react-redux";
@@ -12,7 +12,7 @@ import { useDispatch, useSelector } from '../plugin/e-react-redux';
 
 function ReduxFnPage(props) {
   // const { num, add, minus, setSize } = props;
-  const num = useSelector(state => state)
+  const num = useSelector(state => state.count)
   const dispatch = useDispatch();
   const add = () => dispatch({ type: "ADD" })
   const minus = () => dispatch({ type: "MINUS" })
@@ -31,7 +31,7 @@ function ReduxFnPage(props) {
 // 函数，类似mapgetters
 const mapStateToProps = state => {
   return {
-    num: state,
+    num: state.count,
   };
 };
 // 对象，类似mapactions

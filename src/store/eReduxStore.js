@@ -1,28 +1,34 @@
-// import {createStore, applyMiddleware, combineReducers} from "redux";
-import { combineReducers } from "redux";
-import { createStore, applyMiddleware } from "../kredux/";
+/*
+ * @Description:
+ * @Author: dengxiaodong
+ * @Date: 2021-02-25 16:02:08
+ * @LastEditors: dengxiaodong
+ * @LastEditTime: 2021-04-04 18:55:49
+ */
+import { createStore, combineReducers, applyMiddleware } from "../plugin/e-redux";
 // import thunk from "redux-thunk";
 // import logger from "redux-logger";
 // import promise from "redux-promise";
 import isPromise from "is-promise";
-import { isFSA } from "flux-standard-action";
 
-// 定义修改规则
-function countReducer(state = 0, action) {
+
+// TAG 1.reduce规则：定义current state + action
+const counterReducer = (state = 0, action) => {
   switch (action.type) {
     case "ADD":
-      return state + (action.payload || 1);
+      console.log("ADD");
+      return state + 1;
     case "MINUS":
-      return state - (action.payload || 1);
+      console.log("MINUS");
+      return state - 1;
     default:
       return state;
   }
-}
+};
 
-// 创建一个数据仓库
+// TAG 2.生成reduxStore，暴露getState、dispatch、subscribe接口
 const store = createStore(
-  // countReducer,
-  combineReducers({ count: countReducer }),
+  combineReducers({ count: counterReducer }),
   applyMiddleware(thunk, promise, logger)
 );
 
@@ -30,14 +36,13 @@ export default store;
 
 // 解决异步
 function thunk({ getState, dispatch }) {
-  return (next) => (action) => {  // TAG 柯里化，参数单一为方便聚合函数，next指向被聚合的函数，例如 a(b(...args)), a为trunk，b为next
+  return (next) => (action) => {
     if (typeof action === "function") {
       return action(dispatch, getState);
     }
     return next(action);
   };
 }
-
 // logger 打印日志
 function logger({ getState, dispatch }) {
   return (next) => (action) => {
@@ -56,7 +61,6 @@ function logger({ getState, dispatch }) {
     return returnValue;
   };
 }
-
 function promise({ getState, dispatch }) {
   return (next) => (action) => {
     return isPromise(action) ? action.then(dispatch) : next(action);

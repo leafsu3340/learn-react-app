@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import store from "../store/";
+import store from "../store/eReduxStore";
 // import { connect } from 'react-redux'
 // import store from "./store/ReduxStore";
 import { connect } from "../plugin/e-react-redux";

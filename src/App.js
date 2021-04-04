@@ -5,7 +5,7 @@ import styles from "./styles/index.module.css";
 // import { FunctionalComp } from "./components/FunctionalComp";
 // import LifeCyclePage from "./pages/LifecyclePage";
 // import CompositionPage from "./pages/CompositionPage";
-// import ReduxPage from "./pages/ReduxPage";
+import ReduxPage from "./pages/ReduxPage";
 import ReduxFnPage from "./pages/ReduxFnPage";
 
 // import RouterPage from "./pages/RouterPage";
@@ -46,6 +46,7 @@ function App() {
       <ReduxPage />
       <MyRCFieldForm/> */}
       <MyRCFieldForm/>
+      <ReduxPage />
       <ReduxFnPage>
         <div>
           this is children
