@@ -3,7 +3,7 @@
  * @Author: dengxiaodong
  * @Date: 2021-04-02 15:31:29
  * @LastEditors: dengxiaodong
- * @LastEditTime: 2021-04-02 16:41:41
+ * @LastEditTime: 2021-04-06 13:13:16
  */
 import React, {
   useCallback,
@@ -35,7 +35,7 @@ export default function FnField(props) {
   };
 
   useEffect(() => {
-    // TAG 如何获取Field实例？函数组件中没有this, 使用useRef!
+    // TAG 如何获取Field实例？函数组件中没有this, 使用useRef
     const unregisterFieldEntity = registerFieldEntity(field);
     registerFieldRules({ [name]: rules });
     return () => {
@@ -45,7 +45,7 @@ export default function FnField(props) {
 
   const forceUpdate = useForceUpdate();
 
-  const getControlled = () => {
+  const getControlled = () => { // TAG 可以加上useCallback，优化性能
     const { getFieldValue, setFieldsValue } = context;
 
     return {
