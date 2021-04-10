@@ -8,11 +8,12 @@ import styles from "./styles/index.module.css";
 // import ReduxPage from "./pages/ReduxPage";
 // import ReduxFnPage from "./pages/ReduxFnPage";
 
-import RouterPage from "./pages/RouterPage";
+// import RouterPage from "./pages/RouterPage";
 // import HookTest from "./components/HookTest";
 // import { foo } from "./components/HOC";
 // import HOCForm from './components/HOCForm';
 // import MyRCFieldForm from './pages/MyRCFieldForm';
+import Routes from "./routes";
 
 
 
@@ -51,7 +52,7 @@ function App() {
         </div>
       </ReduxFnPage>
        */}
-       <RouterPage />
+       <Routes />
     </div>
   );
 }
